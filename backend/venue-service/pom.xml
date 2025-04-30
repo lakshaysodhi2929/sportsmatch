@@ -11,10 +11,10 @@
     </parent>
 
     <groupId>com.sportsmatch</groupId>
-    <artifactId>user-service</artifactId>
+    <artifactId>venue-service</artifactId>
     <version>1.0.0</version>
-    <name>User Service</name>
-    <description>Service for managing user accounts and authentication</description>
+    <name>Venue Service</name>
+    <description>Service for managing sports venues</description>
 
     <properties>
         <java.version>17</java.version>
@@ -22,13 +22,6 @@
     </properties>
 
     <dependencies>
-        <!-- Dependencies -->
-        <dependency>
-            <groupId>com.sportsmatch</groupId>
-            <artifactId>common</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-
         <!-- Spring Boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -81,12 +74,6 @@
             <artifactId>jjwt-jackson</artifactId>
             <version>0.11.5</version>
             <scope>runtime</scope>
-        </dependency>
-
-        <!-- Password Encoder -->
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-crypto</artifactId>
         </dependency>
 
         <!-- Lombok -->

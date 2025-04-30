@@ -1,9 +1,9 @@
 server:
-  port: 8081
+  port: 8082
 
 spring:
   application:
-    name: user-service
+    name: match-service
   datasource:
     url: jdbc:mysql://localhost:3306/sportsmatch?createDatabaseIfNotExist=true
     username: root
@@ -32,13 +32,4 @@ eureka:
 
 jwt:
   secret: your-secret-key-here-make-it-long-and-secure-in-production
-  expiration: 86400000 # 24 hours in milliseconds
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  endpoint:
-    health:
-      show-details: always 
+  expiration: 86400000 # 24 hours in milliseconds 

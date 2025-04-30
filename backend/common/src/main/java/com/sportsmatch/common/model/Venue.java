@@ -1,13 +1,33 @@
 package com.sportsmatch.common.model;
 
-import jakarta.persistence.*;
+import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.CollectionTable;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
-import java.time.LocalDateTime;
-import java.util.Set;
+import lombok.Builder;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -23,31 +43,36 @@ public class Venue {
     @Column(nullable = false)
     private String address;
 
-    @Column(nullable = false)
-    private Double latitude;
+    @Column(name = "contact_number")
+    private String contactNumber;
 
     @Column(nullable = false)
-    private Double longitude;
+    private String city;
+
+    private String description;
+
+    @Column(name = "opening_hours")
+    private String openingHours;
+
+    @Column(name = "closing_hours")
+    private String closingHours;
+
+    @Column(name = "image_url")
+    private String imageUrl;
+
+    @Column(nullable = false)
+    private double latitude;
+
+    @Column(nullable = false)
+    private double longitude;
 
     @ElementCollection
     @CollectionTable(name = "venue_sports", joinColumns = @JoinColumn(name = "venue_id"))
     @Column(name = "sport")
-    private Set<String> availableSports;
+    private Set<String> sports;
 
-    @Column
-    private String description;
-
-    @Column
-    private String contactNumber;
-
-    @Column
-    private String email;
-
-    @Column
-    private String website;
-
-    @Column
-    private Double averageRating;
+    @Column(name = "is_active")
+    private boolean isActive = true;
 
     @Column(nullable = false)
     private LocalDateTime createdAt;
